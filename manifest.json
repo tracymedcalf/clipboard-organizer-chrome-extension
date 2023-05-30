@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Generate Upwork Cover Letter",
+    "version": "1.0",
+
+    "description": "Uses ChatGPT to write a cover letter for Upwork",
+    "icons": {
+        "48": "icons/pen.svg",
+        "96": "icons/pen.svg"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.upwork.com/*"],
+            "js": ["main.js"]
+        }
+    ],
+
+    "permissions": [
+        "cookies"
+    ],
+
+    "browser_action": {
+        "default_popup": "popup/menu.html"
+    }
+}
