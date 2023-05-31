@@ -11,7 +11,7 @@
 
     "content_scripts": [
         {
-            "js": ["content_scripts/main.js"],
+            "js": ["content_scripts/content.js"],
             "matches": ["<all_urls>", "*://*.upwork.com/*"]
         }
     ],
@@ -21,6 +21,6 @@
     ],
 
     "action": {
-        "default_popup": "popup/menu.html"
+        "default_popup": "popup/popup.html"
     }
 }
