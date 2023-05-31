@@ -17,7 +17,11 @@
     ],
 
     "permissions": [
-        "cookies"
+        "activeTab",
+        "contextMenus",
+        "cookies",
+        "scripting",
+        "storage"
     ],
 
     "action": {
