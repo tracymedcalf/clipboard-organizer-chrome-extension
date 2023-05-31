@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Generate Upwork Cover Letter",
     "version": "1.0",
 
@@ -11,8 +11,8 @@
 
     "content_scripts": [
         {
-            "matches": ["*://*.upwork.com/*"],
-            "js": ["main.js"]
+            "js": ["content_scripts/main.js"],
+            "matches": ["<all_urls>", "*://*.upwork.com/*"]
         }
     ],
 
@@ -20,7 +20,7 @@
         "cookies"
     ],
 
-    "browser_action": {
+    "action": {
         "default_popup": "popup/menu.html"
     }
 }
