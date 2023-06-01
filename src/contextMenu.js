@@ -1,3 +1,5 @@
+//import { key } from "./storage_key"
+
 // Store text to persist while plugin is loaded or until reset.
 async function store(text) {
     const key = "upwork_cover_letter_generator_data";

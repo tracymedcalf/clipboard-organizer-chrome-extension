@@ -12,7 +12,7 @@
 
     "content_scripts": [
         {
-            "js": ["content_scripts/content.js"],
+            "js": ["content_script.js"],
             "matches": ["<all_urls>", "*://*.upwork.com/*"]
         }
     ],
@@ -26,7 +26,7 @@
     ],
 
     "action": {
-        "default_popup": "popup/popup.html"
+        "default_popup": "popup.html"
     },
 
     "background": {
@@ -34,7 +34,7 @@
     },
 
     "options_ui": {
-        "page": "options/options.html",
+        "page": "options.html",
         "open_in_tab": true
     }
 }
