@@ -5,9 +5,10 @@ const configuration = new Configuration({
     // CHANGE
     apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
-async function (req, res) {
+async function callApi(req, res) {
     if (!configuration.apiKey) {
         console.error("OpenAI API key not configured, please follow instructions in README.md");
         return;
@@ -41,7 +42,8 @@ async function (req, res) {
 function generatePrompt(jobDescription) {
 }
 
-// Store text to persist while plugin is loaded or until reset. async function store(text) {
+// Store text to persist while plugin is loaded or until reset. 
+async function store(text) {
 
     const o = await chrome.storage.local.get([key]);
 

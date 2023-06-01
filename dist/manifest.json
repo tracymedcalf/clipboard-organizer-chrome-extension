@@ -30,7 +30,7 @@
     },
 
     "background": {
-        "service_worker": "contextMenu.js"
+        "service_worker": "context_menu.js"
     },
 
     "options_ui": {
