@@ -5,8 +5,9 @@
 
     "description": "Uses ChatGPT to write a cover letter for Upwork",
     "icons": {
-        "48": "icons/pen.svg",
-        "96": "icons/pen.svg"
+        "16": "icons/pen-16.png",
+        "48": "icons/pen-48.png",
+        "96": "icons/pen-96.png"
     },
 
     "content_scripts": [
@@ -26,5 +27,14 @@
 
     "action": {
         "default_popup": "popup/popup.html"
+    },
+
+    "background": {
+        "service_worker": "contextMenu.js"
+    },
+
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": true
     }
 }
