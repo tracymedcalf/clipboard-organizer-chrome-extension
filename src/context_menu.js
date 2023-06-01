@@ -1,12 +1,18 @@
 import { Configuration, OpenAIApi } from "openai";
-import { key } from "./storage_key"
+import { key } from "./storage_key";
 
-const configuration = new Configuration({
-    // CHANGE
-    apiKey: process.env.OPENAI_API_KEY,
-});
+let configuration;
+let openai;
 
-const openai = new OpenAIApi(configuration);
+(async () => {
+    const keyFile = chrome.extension.getURL('../open_api_key_file.js');
+    const keyScript = await import(keyFile);
+    configuration = new Configuration({
+        apiKey: 
+    });
+    openai = new OpenAIApi(configuration);
+})();
+
 
 async function callApi(req, res) {
     if (!configuration.apiKey) {

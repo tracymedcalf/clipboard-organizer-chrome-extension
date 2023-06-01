@@ -1,7 +1,7 @@
 {
   "name": "cover-letter",
   "version": "1.0.0",
-  "description": "A plugin for using OpenAPI to generate UpWork cover letters.",
+  "description": "A plugin for using OpenAI to generate UpWork cover letters.",
   "main": "main.js",
   "scripts": {
     "test": "test"
