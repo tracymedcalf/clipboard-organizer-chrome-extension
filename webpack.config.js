@@ -11,6 +11,9 @@ module.exports = {
         options: './src//options.js',
         context_menu: './src/context_menu.js',
     },
+    devServer: {
+        hot: true,
+    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),

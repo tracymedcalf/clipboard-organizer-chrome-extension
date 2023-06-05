@@ -4,11 +4,18 @@ import { key } from "./storage_key";
 let configuration;
 let openai;
 
+console.log("changes!");
 (async () => {
-    const keyFile = chrome.extension.getURL('../open_api_key_file.js');
-    const keyScript = await import(keyFile);
+    const key = 
+        await fetch(chrome.runtime.getURL('../.open_api_key_file'))
+        .then(response => response.text())
+        .then(text => {
+            console.log(text);
+        })
+        .catch(err => console.error(err));
+
     configuration = new Configuration({
-        apiKey: 
+        apiKey: key
     });
     openai = new OpenAIApi(configuration);
 })();
