@@ -1,24 +1,19 @@
-import { Configuration, OpenAIApi } from "openai";
+import * as $ from "jquery";
 import { key } from "./storage_key";
 
 let configuration;
 let openai;
 
-console.log("changes!");
-(async () => {
-    const key = 
-        await fetch(chrome.runtime.getURL('../.open_api_key_file'))
-        .then(response => response.text())
-        .then(text => {
-            console.log(text);
-        })
-        .catch(err => console.error(err));
-
-    configuration = new Configuration({
-        apiKey: key
-    });
-    openai = new OpenAIApi(configuration);
-})();
+//(async () => {
+//    const relativePath = './.open_api_key_file';
+//    const url = chrome.runtime.getURL(relativePath);
+//    const response = await fetch(url);
+//
+//    configuration = new Configuration({
+//        apiKey: key
+//    });
+//    openai = new OpenAIApi(configuration);
+//})();
 
 
 async function callApi(req, res) {

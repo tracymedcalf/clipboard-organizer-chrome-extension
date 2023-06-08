@@ -7,7 +7,7 @@ module.exports = {
     devtool: "inline-source-map",
     entry: {
         content_script: './src/content_script.js',
-        popup: './src/popup.js',
+        popup: './src/popup.tsx',
         options: './src//options.js',
         context_menu: './src/context_menu.js',
     },
@@ -27,9 +27,22 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"],
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
         ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
 };
