@@ -1,17 +1,29 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import { Button } from "react-bootstrap";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
-//function Popup() {
-//    return (
-//        <div>Popup</div>
-//    );
-//}
+function Popup(props: { content: string[] }) {
+    return (
+        <div>
+            <h2>Re-order your text as desired.</h2>
+            {props.content.map(s => (
+                <div>
+                    <Button><FaArrowUp /></Button>
+                    <Button><FaArrowDown /></Button>
+                    <span>This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.This is the text that we're saving.</span>
+                </div>
+            ))}
+        </div>
+    );
+}
 
-const domContainer = document.getElementById("dom-container");
-ReactDOM.render(
+
+const root = createRoot(document.getElementById("dom-container"));
+
+root.render(
     <React.StrictMode>
-        <div>Does thing</div>
+        <Popup content={['Text']} />
     </React.StrictMode>,
-    domContainer
 );
 

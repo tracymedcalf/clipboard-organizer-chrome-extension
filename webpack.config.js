@@ -21,24 +21,18 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ from: 'static' }],
+            patterns: [
+                { from: 'static' },
+                'node_modules/bootstrap/dist/css/bootstrap\.min\.css'
+            ],
         }),
     ],
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ["babel-loader"],
-            },
-            {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
         ],
     },
