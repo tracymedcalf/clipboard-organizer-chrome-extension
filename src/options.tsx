@@ -1,8 +1,9 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Button, Form } from "react-bootstrap";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { key } from "./storage_key"
+import Store from "./Store";
 
 //const promptEl = document.getElementById("prompt");
 //
@@ -17,7 +18,16 @@ import { key } from "./storage_key"
 
 
 function Options() {
-    const content = ['text']
+
+    const [content, setContent] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const c = await Store.getContent();
+            setContent(c);
+        })();
+    });
+
     return (
         <div>
             {content.map(s => (

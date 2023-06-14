@@ -1,5 +1,4 @@
-import * as $ from "jquery";
-import { key } from "./storage_key";
+//import * as $ from "jquery";
 
 let configuration;
 let openai;
@@ -50,22 +49,6 @@ async function callApi(req, res) {
 function generatePrompt(jobDescription) {
 }
 
-// Store text to persist while plugin is loaded or until reset. 
-async function store(text) {
-
-    const o = await chrome.storage.local.get([key]);
-
-    const oldStore = o[key];
-
-    if (oldStore === undefined) {
-        chrome.storage.local.set({ [key]: [text] });
-
-    } else {
-        const newStore = [...oldStore, text];
-
-        chrome.storage.local.set({ [key]: newStore });
-    }
-}
 
 function contextOnClick(info) {
     switch (info.menuItemId) {
