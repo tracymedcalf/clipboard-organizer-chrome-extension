@@ -27,6 +27,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@types/chrome": "^0.0.237",
     "@types/react": "^18.2.9",
     "@types/react-dom": "^18.2.4",
     "babel-loader": "^9.1.2",

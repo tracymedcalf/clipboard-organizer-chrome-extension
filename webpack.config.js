@@ -8,7 +8,7 @@ module.exports = {
     entry: {
         content_script: './src/content_script.js',
         popup: './src/popup.tsx',
-        options: './src//options.js',
+        options: './src//options.tsx',
         context_menu: './src/context_menu.js',
     },
     devServer: {
