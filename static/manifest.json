@@ -22,7 +22,8 @@
         "contextMenus",
         "cookies",
         "scripting",
-        "storage"
+        "storage",
+        "tabs"
     ],
 
     "action": {

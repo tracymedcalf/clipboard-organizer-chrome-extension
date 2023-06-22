@@ -1,38 +1,31 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { StrictMode, useSyncExternalStore } from "react";
 import { createRoot } from "react-dom/client";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import Store from "./Store";
 
-//const promptEl = document.getElementById("prompt");
-//
-//chrome.storage.local.get(key).then(result => {
-//    const array = result[key];
-//    if (array !== undefined) {
-//        promptEl.value = array.join("\n");
-//    } else {
-//        promptEl.value = "No prompt saved.";
-//    }
-//});
-
 function Options() {
-
     const [content, setContent] = useState([]);
 
     const [edit, setEdit] = useState(-1);
 
-    //useEffect(() => {
-    //    (async () => {
-    //        const c = await Store.getContent();
-    //        setContent(c);
-    //    })();
-    //});
+    const onContentUpdate = (request: { content: string[] }, sender: any, sendResponse: any) => {
+        setContent(request.content)
+    };
+    
+    useEffect(() => {
+        (async () => {
+            console.log("this is called");
+            setContent(await Store.getContent());
+            chrome.runtime.onMessage.addListener(onContentUpdate);
+        })();
+    }, []);
 
     return (
         <div>
-            {['text'].map((s, i) => (
-                <div>
+            {content.map((s, i) => (
+                <div key={s}>
                     <div className={"d-flex"}>
                         <div className={"d-flex flex-column"}>
                             <Button disabled={i === 0}><FaArrowUp /></Button>
@@ -52,8 +45,8 @@ function Options() {
 
 const root = createRoot(document.getElementById("dom-container"));
 root.render(
-    <React.StrictMode>
+    <StrictMode>
         <Options />
-    </React.StrictMode>,
+    </StrictMode>,
 );
 

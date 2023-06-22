@@ -9,7 +9,7 @@ module.exports = {
         content_script: './src/content_script.js',
         popup: './src/popup.tsx',
         options: './src//options.tsx',
-        context_menu: './src/context_menu.js',
+        context_menu: './src/context_menu.ts',
     },
     devServer: {
         hot: true,

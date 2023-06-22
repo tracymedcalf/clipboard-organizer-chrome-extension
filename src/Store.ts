@@ -17,7 +17,11 @@ async function put(text: string) {
 
 async function getContent() {
     const result = await chrome.storage.local.get([key]);
-    return result[key];
+    const stored = result[key];
+    return stored === undefined ? [] : stored;
 }
 
-export default { getContent, put };
+export default { 
+    getContent, 
+    put,
+};
