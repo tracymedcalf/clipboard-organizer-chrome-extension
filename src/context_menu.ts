@@ -1,3 +1,5 @@
+import Store from "./Store";
+
 //let configuration;
 //let openai;
 //
@@ -48,13 +50,19 @@
 //}
 
 async function selectionOnClick(selectionText: string) {
-    const tabs = await chrome.tabs.query({ title: "Craft ChatGPT Prompt Options" });    
+    // Store selectionText in cookies for when the options page is opened or we
+    // try to send the prompt.
+    Store.put(selectionText);
 
-    for (const t of tabs) {
-        chrome.runtime.sendMessage(
-            t.id + '',
+    // Error is okay, because the purpose of sending the message is to update
+    // the options page.
+    try {
+        await chrome.runtime.sendMessage(
+            null,
             selectionText
         );
+    } catch(e) {
+        console.log("Error sending message: ", e);
     }
 }
 
@@ -71,22 +79,30 @@ async function contextOnClick(info: chrome.contextMenus.OnClickData) {
     }
 }
 
+type ContextType = chrome.contextMenus.ContextType;
+
+function addContextMenuItem(
+    title: string, 
+    context: ContextType, 
+    id: ContextType
+) {
+    chrome.contextMenus.create({
+        title: title,
+        contexts: [context],
+        id: context,
+    });
+}
+
 chrome.contextMenus.onClicked.addListener(contextOnClick);
 
 chrome.runtime.onInstalled.addListener(() => {
 
-    let contexts: chrome.contextMenus.ContextType[] = [
-        'selection',
-        'editable',
-    ];
+    const selection: ContextType = "selection";
+    addContextMenuItem(
+        "Add selection to ChatGPT prompt",
+        selection,
+        selection
+    );
 
-    for (let i = 0; i < contexts.length; i++) {
-        let context = contexts[i];
-        let title = "Test '" + context + "' menu item";
-        chrome.contextMenus.create({
-            title: title,
-            contexts: [context],
-            id: context,
-        });
-    }
+    const editable = "editable";
 });
