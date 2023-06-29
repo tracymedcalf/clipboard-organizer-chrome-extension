@@ -56,14 +56,14 @@ async function selectionOnClick(selectionText: string) {
 
     // Error is okay, because the purpose of sending the message is to update
     // the options page.
-    try {
-        await chrome.runtime.sendMessage(
-            null,
-            selectionText
-        );
-    } catch(e) {
-        console.log("Error sending message: ", e);
-    }
+    //try {
+    //    await chrome.runtime.sendMessage(
+    //        null,
+    //        selectionText
+    //    );
+    //} catch(e) {
+    //    console.log("Error sending message: ", e);
+    //}
 }
 
 async function contextOnClick(info: chrome.contextMenus.OnClickData) {

@@ -1,9 +1,12 @@
 import { key } from "./storage_key";
+import Text from "./Text";
 
 // Store text to persist while plugin is loaded or until reset. 
-async function put(text: string) {
+async function put(s: string) {
 
-    const oldStore = await this.getContent();
+    const text = new Text(s);
+
+    const oldStore = await get();
 
     if (oldStore === undefined) {
         chrome.storage.local.set({ [key]: [text] });
@@ -21,7 +24,7 @@ async function get() {
     return stored === undefined ? [] : stored;
 }
 
-async function set(content: string[]) {
+async function set(content: Text[]) {
     chrome.storage.local.set({ [key]: [...content] });
 }
 
