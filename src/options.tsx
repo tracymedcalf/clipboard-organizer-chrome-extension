@@ -1,5 +1,5 @@
 import React, { StrictMode, useSyncExternalStore } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { createRoot } from "react-dom/client";
 import { useState } from "react";
@@ -33,28 +33,27 @@ function Options() {
 
     return (
         <div>
-            <Button
+            <button
                 onClick={onClear}
-                variant="danger"
             >
                 Clear
-            </Button>
+            </button>
             {content.map(({ text, id }, i) => (
                 <div key={id}>
                     <div className={"d-flex"}>
                         <div className={"d-flex flex-column"}>
-                            <Button 
+                            <button 
                                 disabled={i === 0} 
                                 onClick={() => swap(i, i-1)}
                             >
                                 <FaArrowUp />
-                            </Button>
-                            <Button 
+                            </button>
+                            <button 
                                 disabled={i === content.length - 1} 
                                 onClick={() => swap(i, i+1)}
                             >
                                 <FaArrowDown />
-                            </Button>
+                            </button>
                         </div>
                         <Form.Control 
                             readOnly={edit !== i} 
