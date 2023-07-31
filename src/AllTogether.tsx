@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 import type Text from "./Text";
+import AllText from "./AllText";
 
 export default function AllTogether(props: { content: Text[] }) {
     const [delimiter, setDelimiter] = useState(" ");
@@ -9,9 +10,7 @@ export default function AllTogether(props: { content: Text[] }) {
     return (
         <div>
             <div>All together: </div>
-            <div>
-                {props.content.map(t => <p>{t.text}</p>)}
-            </div>
+            <AllText content={props.content} delimiter={delimiter} />
             <form name="delimiter">
                 <label>
                     <input
