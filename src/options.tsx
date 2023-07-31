@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import AllTogether from "./AllTogether";
 import { key } from "./storage_key";
-import { useCookie } from "./cookie-hook";
+import { useCookie } from "./cookie_hook";
 
 function Options() {
 

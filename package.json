@@ -1,7 +1,7 @@
 {
-  "name": "cover-letter",
+  "name": "ChatGPT Prompt Generator",
   "version": "1.0.0",
-  "description": "A plugin for using OpenAI to generate UpWork cover letters.",
+  "description": "A Chrome plugin for generating ChatGPT queries.",
   "main": "main.js",
   "scripts": {
     "test": "test"
