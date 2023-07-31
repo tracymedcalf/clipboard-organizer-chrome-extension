@@ -1,13 +1,12 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { Button } from "react-bootstrap";
 
 function Popup(props: { content: string[] }) {
     return (
         <div>
-            <Button onClick={() => chrome.runtime.openOptionsPage()}>
+            <button onClick={() => chrome.runtime.openOptionsPage()}>
                 Edit Prompt
-            </Button>
+            </button>
         </div>
     );
 }

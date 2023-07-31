@@ -38,29 +38,25 @@ function Options() {
             </button>
             {content.map(({ text, id }, i) => (
                 <div key={id}>
-                    <div className={"d-flex"}>
-                        <div className={"d-flex flex-column"}>
-                            <button 
-                                disabled={i === 0} 
-                                onClick={() => swap(i, i-1)}
-                            >
-                                <FaArrowUp />
-                            </button>
-                            <button 
-                                disabled={i === content.length - 1} 
-                                onClick={() => swap(i, i+1)}
-                            >
-                                <FaArrowDown />
-                            </button>
-                        </div>
-                        <textarea
-                            readOnly={edit !== i} 
-                            placeholder="Write prompt in here." 
-                            value={text} 
-                        />
-                    </div>
-                    {(edit === i) 
-                        ? <button onClick={() => setEdit(-1)}>Save</button> 
+                    <button
+                        disabled={i === 0}
+                        onClick={() => swap(i, i - 1)}
+                    >
+                        <FaArrowUp />
+                    </button>
+                    <button
+                        disabled={i === content.length - 1}
+                        onClick={() => swap(i, i + 1)}
+                    >
+                        <FaArrowDown />
+                    </button>
+                    <textarea
+                        readOnly={edit !== i}
+                        placeholder="Write prompt in here."
+                        value={text}
+                    />
+                    {(edit === i)
+                        ? <button onClick={() => setEdit(-1)}>Save</button>
                         : <button onClick={() => setEdit(i)}>Edit</button>
                     }
                     <button onClick={() => remove(i)}>Delete</button>
@@ -68,7 +64,7 @@ function Options() {
             ))}
 
             <AllTogether content={content} />
-    </div>
+        </div>
     );
 }
 

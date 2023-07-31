@@ -23,8 +23,6 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: 'static' },
-                'node_modules/bootstrap/dist/css/bootstrap\.min\.css',
-                'node_modules/bootstrap/dist/css/bootstrap\.min\.css\.map',
             ],
         }),
     ],
