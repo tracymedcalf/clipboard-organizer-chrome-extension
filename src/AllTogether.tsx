@@ -10,8 +10,7 @@ export default function AllTogether(props: { content: Text[] }) {
     return (
         <div className="m-3 p-3">
             <div>All together: </div>
-            <Form.Control 
-                as="textarea" 
+            <textarea
                 placeholder="Write prompt in here." 
                 value={props.content.map(t => t.text).join(delimiter)}
             />

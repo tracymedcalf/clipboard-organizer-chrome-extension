@@ -1,11 +1,9 @@
-import React, { StrictMode, useSyncExternalStore } from "react";
-import { Form } from "react-bootstrap";
+import React, { StrictMode } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { createRoot } from "react-dom/client";
 import { useState } from "react";
 
 import AllTogether from "./AllTogether";
-import { key } from "./storage_key";
 import { useCookie } from "./cookie_hook";
 
 function Options() {
@@ -55,18 +53,17 @@ function Options() {
                                 <FaArrowDown />
                             </button>
                         </div>
-                        <Form.Control 
+                        <textarea
                             readOnly={edit !== i} 
-                            as="textarea" 
                             placeholder="Write prompt in here." 
                             value={text} 
                         />
                     </div>
                     {(edit === i) 
-                        ? <button className={"btn btn-link"} onClick={() => setEdit(-1)}>Save</button> 
-                        : <button className={"btn btn-link"} onClick={() => setEdit(i)}>Edit</button>
+                        ? <button onClick={() => setEdit(-1)}>Save</button> 
+                        : <button onClick={() => setEdit(i)}>Edit</button>
                     }
-                    <button className={"btn btn-link"} onClick={() => remove(i)}>Delete</button>
+                    <button onClick={() => remove(i)}>Delete</button>
                 </div>
             ))}
 
