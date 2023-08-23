@@ -8,6 +8,14 @@ html {
     box-sizing: inherit;
 }
 
-.box {
-    display: flex-box;
+.row {
+    display: flex;
+}
+
+.row > textarea {
+    flex-grow: 1;
+}
+
+.col > button {
+    display: block;
 }

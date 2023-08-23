@@ -11,4 +11,10 @@ export default class Text {
         this.id = uuidV1();
         this.text = text;
     }
+
+    from(s: string) {
+        const t = new Text(s);
+        t.id = this.id;
+        return t;
+    }
 }
