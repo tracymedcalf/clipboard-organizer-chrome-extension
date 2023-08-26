@@ -6,6 +6,7 @@ import { useState } from "react";
 import AllTogether from "./AllTogether";
 import Text from "./Text";
 import { useCookie } from "./cookie_hook";
+const axios = require('axios').default;
 
 function Options() {
 
@@ -33,6 +34,7 @@ function Options() {
     const setText = (newText: Text) => {
         setCookie(content.map(t => t.id === newText.id ? newText : t));
     };
+
 
     return (
         <div>

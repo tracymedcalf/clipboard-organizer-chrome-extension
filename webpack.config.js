@@ -6,10 +6,10 @@ module.exports = {
     mode: "development",
     devtool: "inline-source-map",
     entry: {
-        content_script: './src/content_script.js',
         popup: './src/popup.tsx',
-        options: './src//options.tsx',
+        options: './src/options.tsx',
         context_menu: './src/context_menu.ts',
+        background: './src/background/index.ts',
     },
     devServer: {
         hot: true,

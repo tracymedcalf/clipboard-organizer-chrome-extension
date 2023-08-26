@@ -10,13 +10,6 @@
         "96": "icons/pen-96.png"
     },
 
-    "content_scripts": [
-        {
-            "js": ["content_script.js"],
-            "matches": ["<all_urls>", "*://*.upwork.com/*"]
-        }
-    ],
-
     "permissions": [
         "activeTab",
         "contextMenus",
@@ -31,7 +24,7 @@
     },
 
     "background": {
-        "service_worker": "context_menu.js"
+        "service_worker": "background.js"
     },
 
     "options_ui": {

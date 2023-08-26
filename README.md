@@ -1,3 +1,3 @@
 # Development
 
-Run `npx webpack --watch` to start development
+Run `npm start` to start development
