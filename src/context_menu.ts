@@ -6,12 +6,18 @@ async function selectionOnClick(selectionText: string) {
     Store.put(selectionText);
 }
 
+async function editableOnClick() {
+
+}
+
 async function contextOnClick(info: chrome.contextMenus.OnClickData) {
     switch (info.menuItemId) {
         case 'selection':
             selectionOnClick(info.selectionText);
             break;
         case 'editable':
+            console.log(info);
+            editableOnClick()
             break;
         default:
             // Standard context menu item function
@@ -37,6 +43,8 @@ chrome.contextMenus.onClicked.addListener(contextOnClick);
 
 chrome.runtime.onInstalled.addListener(() => {
 
+    console.log("on installed")
+
     const selection: ContextType = "selection";
     addContextMenuItem(
         "Add selection to ChatGPT prompt",
@@ -44,5 +52,10 @@ chrome.runtime.onInstalled.addListener(() => {
         selection
     );
 
-    const editable = "editable";
+    //const editable: ContextType = "editable";
+    //addContextMenuItem(
+    //    "Input ChatGPT result",
+    //    editable,
+    //    editable
+    //)
 });
