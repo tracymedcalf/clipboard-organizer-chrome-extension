@@ -1,7 +1,7 @@
 {
-  "name": "ChatGPT Prompt Generator",
+  "name": "clipboard-organizer",
   "version": "1.0.0",
-  "description": "A Chrome plugin for generating ChatGPT queries.",
+  "description": "A Chrome plugin for saving items through the context menu and building an easily re-arranged list.",
   "main": "main.js",
   "scripts": {
     "start": "npx webpack --watch"
