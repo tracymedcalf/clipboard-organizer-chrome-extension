@@ -6,7 +6,6 @@ import { useState } from "react";
 import AllTogether from "./AllTogether";
 import Text from "./Text";
 import { useCookie } from "./cookie_hook";
-const axios = require('axios').default;
 
 function Options() {
 
@@ -41,7 +40,7 @@ function Options() {
             <button
                 onClick={onClear}
             >
-                Clear
+                Clear All
             </button>
             {content.map((t, i) => (
                 <div key={t.id}>
