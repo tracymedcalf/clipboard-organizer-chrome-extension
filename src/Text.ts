@@ -17,4 +17,8 @@ export default class Text {
         t.id = this.id;
         return t;
     }
+
+    static join(array: Text[], delimiter: string) {
+        return array.map(t => t.text).join(delimiter);
+    }
 }
