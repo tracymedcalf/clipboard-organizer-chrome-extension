@@ -37,8 +37,6 @@ function Options() {
 
     const [content, setCookie] = useCookie();
 
-    const [edit, setEdit] = useState(-1);
-
     const swap = (i1: number, i2: number) => {
         const newContent = [...content];
         const save = newContent[i2];
@@ -94,14 +92,9 @@ function Options() {
                                 (e) => setText(Text.from(t, e.target.value))
                             }
                             placeholder="Write prompt in here."
-                            readOnly={edit !== i}
                             value={t.text}
                         />
                     </div>
-                    {(edit === i)
-                        ? <button onClick={() => setEdit(-1)}>Save</button>
-                        : <button onClick={() => setEdit(i)}>Edit</button>
-                    }
                     <button onClick={() => remove(i)}>Delete</button>
                 </div>
             ))}
