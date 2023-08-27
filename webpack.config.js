@@ -8,8 +8,7 @@ module.exports = {
     entry: {
         popup: './src/popup.tsx',
         options: './src/options.tsx',
-        context_menu: './src/context_menu.ts',
-        background: './src/background/index.ts',
+        background: './src/background.ts'
     },
     devServer: {
         hot: true,
