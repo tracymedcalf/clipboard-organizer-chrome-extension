@@ -72,7 +72,7 @@ function Options() {
                 Clear All
             </button>
             <button onClick={handleCopy}>Copy</button>
-            {content.map((t, i) => (
+            {content.map((t, i) => (console.log(t),
                 <div key={t.id}>
                     <div className="row">
                         <div className="col">
@@ -91,7 +91,7 @@ function Options() {
                         </div>
                         <textarea
                             onChange={
-                                (e) => setText(t.from(e.target.value))
+                                (e) => setText(Text.from(t, e.target.value))
                             }
                             placeholder="Write prompt in here."
                             readOnly={edit !== i}

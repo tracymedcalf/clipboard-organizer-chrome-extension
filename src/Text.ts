@@ -12,9 +12,9 @@ export default class Text {
         this.text = text;
     }
 
-    from(s: string) {
+    static from(old: Text, s: string) {
         const t = new Text(s);
-        t.id = this.id;
+        t.id = old.id;
         return t;
     }
 

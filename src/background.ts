@@ -43,7 +43,6 @@ chrome.contextMenus.onClicked.addListener(contextOnClick);
 
 chrome.runtime.onInstalled.addListener(() => {
 
-    console.log("on installed")
 
     const selection: ContextType = "selection";
     addContextMenuItem(

@@ -13,7 +13,7 @@ export function useCookie(): [Text[], (_: Text[]) => void] {
             setValue(await Store.get());
         })();
 
-        const onChange = async () => {
+        const onChange = async (c: any, v: any) => {
             setValue(await Store.get());
         };
 
