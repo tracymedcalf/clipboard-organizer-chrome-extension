@@ -16,7 +16,6 @@ async function contextOnClick(info: chrome.contextMenus.OnClickData) {
             selectionOnClick(info.selectionText);
             break;
         case 'editable':
-            console.log(info);
             editableOnClick()
             break;
         default:
@@ -29,8 +28,7 @@ type ContextType = chrome.contextMenus.ContextType;
 
 function addContextMenuItem(
     title: string, 
-    context: ContextType, 
-    id: ContextType
+    context: ContextType
 ) {
     chrome.contextMenus.create({
         title: title,
@@ -43,18 +41,15 @@ chrome.contextMenus.onClicked.addListener(contextOnClick);
 
 chrome.runtime.onInstalled.addListener(() => {
 
-
     const selection: ContextType = "selection";
     addContextMenuItem(
-        "Add selection to ChatGPT prompt",
-        selection,
+        "Save selection to Clipboard Organizer",
         selection
     );
 
-    //const editable: ContextType = "editable";
-    //addContextMenuItem(
-    //    "Input ChatGPT result",
-    //    editable,
-    //    editable
-    //)
+    const editable: ContextType = "editable";
+    addContextMenuItem(
+        "Insert Clipboard Organizer contents",
+        editable
+    )
 });
