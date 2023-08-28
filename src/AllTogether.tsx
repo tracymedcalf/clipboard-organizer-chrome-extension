@@ -1,21 +1,22 @@
 import React from "react";
-import { useState } from "react";
-
-import type Text from "./Text";
 import AllText from "./AllText";
+import type Store from "./Store";
 
-export default function AllTogether(props: { content: Text[] }) {
-    const [delimiter, setDelimiter] = useState(" ");
-
+export default function AllTogether(
+    props: {
+        store: Store,
+        setDelimiter: (_: string) => void
+    }
+) {
     return (
         <div>
             <div>All together: </div>
-            <AllText content={props.content} delimiter={delimiter} />
+            <AllText store={props.store} />
             <form name="delimiter">
                 <label>
                     <input
-                        checked={delimiter === " "}
-                        onChange={() => setDelimiter(" ")}
+                        checked={props.store.delimiter === " "}
+                        onChange={() => props.setDelimiter(" ")}
                         type="radio"
                         name="delimiter"
                     />
@@ -24,8 +25,8 @@ export default function AllTogether(props: { content: Text[] }) {
                 <label>
                     <input
                         type="radio"
-                        checked={delimiter === "\n"}
-                        onChange={() => setDelimiter("\n")}
+                        checked={props.store.delimiter === "\n"}
+                        onChange={() => props.setDelimiter("\n")}
                         name="delimiter"
                     />
                     newline

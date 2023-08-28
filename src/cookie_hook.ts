@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 
-import Text from "./Text";
 import Store from "./Store";
 
-export function useCookie(): [Text[], (_: Text[]) => void] {
+export function useCookie(): [Store, (_: Store) => void] {
 
-    const [state, setState] = useState<Text[]>([]);
+    const [state, setState] = useState<Store>(new Store());
 
     useEffect(() => {
 
@@ -25,7 +24,7 @@ export function useCookie(): [Text[], (_: Text[]) => void] {
 
     }, []);
 
-    const setCookie = (newValue: Text[]) => {
+    const setCookie = (newValue: Store) => {
         setState(newValue);
         Store.set(newValue);
     };

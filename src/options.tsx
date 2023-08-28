@@ -1,7 +1,6 @@
 import React, { StrictMode } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { createRoot } from "react-dom/client";
-import { useState } from "react";
 
 import AllTogether from "./AllTogether";
 import Text from "./Text";
@@ -10,27 +9,33 @@ import copyToClipboard from "./copyToClipboard";
 
 function Options() {
 
-    const [content, setCookie] = useCookie();
+    const [store, setCookie] = useCookie();
 
     const swap = (i1: number, i2: number) => {
-        const newContent = [...content];
-        const save = newContent[i2];
-        newContent[i2] = newContent[i1];
-        newContent[i1] = save;
+        const texts = [...store.texts];
+        const save = texts[i2];
+        texts[i2] = texts[i1];
+        texts[i1] = save;
 
-        setCookie(newContent);
+        setCookie({ ...store, texts });
     };
 
     const onClear = () => {
-        setCookie([]);
+        setCookie({ ...store, texts: [] });
     };
 
     const remove = (i1: number) => {
-        setCookie(content.filter((_, i2) => i2 !== i1));
+        setCookie({
+            ...store,
+            texts: store.texts.filter((_, i2) => i2 !== i1)
+        });
     };
 
     const setText = (newText: Text) => {
-        setCookie(content.map(t => t.id === newText.id ? newText : t));
+        setCookie({
+            ...store,
+            texts: store.texts.map(t => t.id === newText.id ? newText : t)
+        });
     };
 
     const handleCopy = () => {
@@ -45,7 +50,7 @@ function Options() {
                 Clear All
             </button>
             <button onClick={handleCopy}>Copy</button>
-            {content.map((t, i) => (
+            {store.texts.map((t, i) => (
                 <div key={t.id}>
                     <div className="row">
                         <div className="col">
@@ -56,7 +61,7 @@ function Options() {
                                 <FaArrowUp />
                             </button>
                             <button
-                                disabled={i === content.length - 1}
+                                disabled={i === store.texts.length - 1}
                                 onClick={() => swap(i, i + 1)}
                             >
                                 <FaArrowDown />
@@ -75,7 +80,10 @@ function Options() {
                 </div>
             ))}
 
-            <AllTogether content={content} />
+            <AllTogether
+                store={store}
+                setDelimiter={(s: string) => setCookie({ ...store, delimiter: s })}
+            />
         </div>
     );
 }
