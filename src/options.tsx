@@ -12,7 +12,9 @@ function Options() {
     const [store, setCookie] = useCookie();
 
     const addText = (i: number) => {
-        setCookie({ ...store, texts: [...store.texts].splice(i, 0, new Text("")) });
+        const texts = [...store.texts];
+        texts.splice(i + 1, 0, new Text(""));
+        setCookie({ ...store, texts });
     }
 
     const swap = (i1: number, i2: number) => {
@@ -72,11 +74,10 @@ function Options() {
                             </button>
                         </div>
                         <textarea
-                            key={t.id}
                             onChange={
                                 (e) => setText(Text.from(t, e.target.value))
                             }
-                            placeholder="Write prompt in here."
+                            placeholder="Text you write in here will be saved to the browser."
                             value={t.text}
                         />
                     </div>
