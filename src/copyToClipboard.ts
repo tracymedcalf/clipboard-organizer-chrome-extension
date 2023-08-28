@@ -1,10 +1,9 @@
-import Text from "./Text";
 import Store from "./Store";
 
 async function copyToClipboard() {
-    const stored: Text[] = await Store.get();
+    const stored: Store = await Store.get();
 
-    const text = stored.map(t => t.text).join(" ");
+    const text = stored.texts.map(t => t.text).join(" ");
 
     //Create a textbox field where we can insert text to. 
     var copyFrom = document.createElement("textarea");

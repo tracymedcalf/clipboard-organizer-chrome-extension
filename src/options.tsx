@@ -11,6 +11,10 @@ function Options() {
 
     const [store, setCookie] = useCookie();
 
+    const addText = (i: number) => {
+        setCookie({ ...store, texts: [...store.texts].splice(i, 0, new Text("")) });
+    }
+
     const swap = (i1: number, i2: number) => {
         const texts = [...store.texts];
         const save = texts[i2];
@@ -77,6 +81,7 @@ function Options() {
                         />
                     </div>
                     <button onClick={() => remove(i)}>Delete</button>
+                    <button onClick={() => addText(i)}>Add Text Below</button>
                 </div>
             ))}
 
