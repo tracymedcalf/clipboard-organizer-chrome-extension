@@ -70,7 +70,7 @@ function Options() {
                 Clear All
             </button>
             <button onClick={handleCopy}>Copy</button>
-            {content.map((t, i) => (console.log(t),
+            {content.map((t, i) => (
                 <div key={t.id}>
                     <div className="row">
                         <div className="col">
@@ -88,6 +88,7 @@ function Options() {
                             </button>
                         </div>
                         <textarea
+                            key={t.id}
                             onChange={
                                 (e) => setText(Text.from(t, e.target.value))
                             }

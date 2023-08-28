@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 
+import { key } from "./storage_key";
 import Text from "./Text";
 import Store from "./Store";
 
 export function useCookie(): [Text[], (_: Text[]) => void] {
 
-    const [value, setValue] = useState<Text[]>([]);
+    const [state, setState] = useState<Text[]>([]);
 
     useEffect(() => {
 
         (async () => {
-            setValue(await Store.get());
+            setState(await Store.get());
         })();
 
-        const onChange = async (c: any, v: any) => {
-            setValue(await Store.get());
+        const onChange = async () => {
+            setState(await Store.get());
         };
 
         chrome.storage.onChanged.addListener(onChange);
@@ -26,8 +27,9 @@ export function useCookie(): [Text[], (_: Text[]) => void] {
     }, []);
 
     const setCookie = (newValue: Text[]) => {
+        setState(newValue);
         Store.set(newValue);
     };
 
-    return [value, setCookie];
+    return [state, setCookie];
 }
