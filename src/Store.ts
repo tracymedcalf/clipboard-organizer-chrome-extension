@@ -22,28 +22,22 @@ class Store {
 
         const text = new Text(s);
 
-        const oldStore = await Store.get();
+        const store = await Store.get();
 
-        if (oldStore === undefined) {
-            chrome.storage.local.set({ [key]: [text] });
+        store.texts.push(text);
 
-        } else {
-            const newStore = Store.from(oldStore, text)
-
-            chrome.storage.local.set({ [key]: newStore });
-        }
+        Store.set(store);
     }
 
     static async get(): Promise<Store> {
         const result = await chrome.storage.local.get([key]);
-        const stored = result[key];
-        return stored === undefined ? [] : stored;
+        const store = result[key];
+        return store === undefined ? new Store() : store;
     }
 
     static async set(store: Store) {
         chrome.storage.local.set({ [key]: store });
     }
-
 }
 
 export default Store;
