@@ -1,1 +1,1 @@
-export const key = "upwork_cover_letter_generator_data";
+export const key = "organizer_array_key";
