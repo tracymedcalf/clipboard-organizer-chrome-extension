@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { key } from "./storage_key";
 import Text from "./Text";
 import Store from "./Store";
 
