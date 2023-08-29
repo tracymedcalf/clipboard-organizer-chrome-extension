@@ -8,7 +8,11 @@ async function selectionOnClick(selectionText: string) {
 }
 
 async function editableOnClick() {
-
+    chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
+        const store: Store = await Store.get();
+        const text = Store.toText(store);
+        chrome.tabs.sendMessage(tabs[0].id, text);
+    });
 }
 
 async function contextOnClick(info: chrome.contextMenus.OnClickData) {

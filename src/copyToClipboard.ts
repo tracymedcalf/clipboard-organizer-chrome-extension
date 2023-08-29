@@ -3,8 +3,7 @@ import Store from "./Store";
 async function copyToClipboard() {
     const store: Store = await Store.get();
 
-    const text = store.texts.map(t => t.text).join(store.delimiter);
-
+    const text = Store.toText(store);
     //Create a textbox field where we can insert text to. 
     var copyFrom = document.createElement("textarea");
 

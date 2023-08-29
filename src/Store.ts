@@ -38,6 +38,10 @@ class Store {
     static async set(store: Store) {
         chrome.storage.local.set({ [key]: store });
     }
+
+    static toText(store: Store) {
+        return store.texts.map(t => t.text).join(store.delimiter);
+    }
 }
 
 export default Store;
