@@ -6,6 +6,7 @@ module.exports = {
     mode: "development",
     devtool: "inline-source-map",
     entry: {
+        content_script: './src/content_script.ts',
         popup: './src/popup.tsx',
         options: './src/options.tsx',
         background: './src/background.ts'

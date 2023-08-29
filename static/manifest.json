@@ -15,7 +15,8 @@
         "contextMenus",
         "cookies",
         "storage",
-        "tabs"
+        "tabs",
+        "scripting"
     ],
 
     "action": {
@@ -29,5 +30,17 @@
     "options_ui": {
         "page": "options.html",
         "open_in_tab": true
-    }
+    },
+  
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content_script.js"
+            ]
+        }
+    ]
 }

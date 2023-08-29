@@ -1,3 +1,4 @@
+import copyToClipboard from "./copyToClipboard";
 import Store from "./Store";
 
 async function selectionOnClick(selectionText: string) {
