@@ -2,7 +2,7 @@ import React from "react";
 import type Store from "./Store";
 
 export default function AllText(props: { store: Store }) {
-    if (props.store.texts.length === 0) {
+    if (props.store.texts.filter(t => t.text !== "").length === 0) {
         return (
             <em>When you add text to the app, it will appear here.</em>
         )
