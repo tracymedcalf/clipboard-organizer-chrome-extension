@@ -5,14 +5,12 @@ import copyToClipboard from "./copyToClipboard";
 
 function Popup(props: { content: string[] }) {
 
-    const handleCopy = () => copyToClipboard();
-
     return (
         <div>
             <button onClick={() => chrome.runtime.openOptionsPage()}>
                 Edit Prompt
             </button>
-            <button onClick={handleCopy}>
+            <button onClick={copyToClipboard}>
                 Copy
             </button>
         </div>
