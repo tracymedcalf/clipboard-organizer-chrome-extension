@@ -16,6 +16,22 @@ html {
     flex-grow: 1;
 }
 
+button {
+    background-color: #f4511e;
+    border: none;
+    padding: .5em 1em;
+    text-align: center;
+    font-size: 16px;
+    margin: .25em;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+button:hover:not(disabled) {
+    opacity: 1;
+}
+
 .col > button {
     display: block;
+    font-size: 12px;
 }

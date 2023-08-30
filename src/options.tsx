@@ -1,5 +1,5 @@
 import React, { StrictMode } from "react";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { FaArrowUp, FaArrowDown, FaCopy } from "react-icons/fa";
 import { createRoot } from "react-dom/client";
 
 import AllTogether from "./AllTogether";
@@ -50,12 +50,14 @@ function Options() {
 
     return (
         <div>
-            <button
-                onClick={onClear}
-            >
-                Clear All
-            </button>
-            <button onClick={handleCopy}>Copy</button>
+            <div className="row">
+                <button
+                    onClick={onClear}
+                >
+                    Clear All
+                </button>
+                <button onClick={handleCopy}><FaCopy /></button>
+            </div>
             {store.texts.map((t, i) => (
                 <div key={t.id}>
                     <div className="row">

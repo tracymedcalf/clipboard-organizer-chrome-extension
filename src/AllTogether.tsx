@@ -10,7 +10,7 @@ export default function AllTogether(
 ) {
     return (
         <div>
-            <div>All together: </div>
+            <h2>All together: </h2>
             <AllText store={props.store} />
             <form name="delimiter">
                 <label>
