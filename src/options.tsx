@@ -53,10 +53,13 @@ function Options() {
             <div className="row">
                 <button
                     onClick={onClear}
+                    title="Delete all text"
                 >
                     Clear All
                 </button>
-                <button onClick={handleCopy}><FaCopy /></button>
+                <button onClick={handleCopy} title="Copy to clipboard">
+                    <FaCopy />
+                </button>
             </div>
             {store.texts.map((t, i) => (
                 <div key={t.id}>
