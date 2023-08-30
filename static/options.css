@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #FFBB5C;
+    --secondary-color: #FF9B50;
+    --tertiary-color: #E25E3E;
+    --quaternary-color: #C63D2F;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -17,21 +24,41 @@ html {
 }
 
 button {
-    background-color: #f4511e;
+    background-color: var(--secondary-color);
     border: none;
     padding: .5em 1em;
     text-align: center;
     font-size: 16px;
     margin: .25em;
-    opacity: 0.6;
     transition: 0.3s;
 }
 
-button:hover:not(disabled) {
-    opacity: 1;
+button:hover:not(:disabled) {
+    background-color: var(--tertiary-color);
 }
 
 .col > button {
     display: block;
     font-size: 12px;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+h3, form {
+    display: inline-block;
+}
+
+h3 {
+    margin-right: .5em;
+}
+
+#all-together {
+    background-color: var(--primary-color);
+    padding: .5em;
+}
+
+textarea {
+    border-color: var(--secondary-color);
 }
