@@ -6,7 +6,7 @@ import copyToClipboard from "./copyToClipboard";
 function Popup(props: { content: string[] }) {
 
     return (
-        <div>
+        <div className="container">
             <button onClick={() => chrome.runtime.openOptionsPage()}>
                 Edit Prompt
             </button>

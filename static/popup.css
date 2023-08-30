@@ -1,3 +1,25 @@
-.full {
-    height: 600px;
+.container {
+    margin: 1em;
+}
+
+button {
+    padding: .8em;
+    margin: .9em 0;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: .8em;
+    box-shadow: 0 .7em #999;
+    width: 100%;
+}
+
+button:hover, button:active {
+    background-color: #3e8e41;
+}
+
+button:active {
+    box-shadow: 0 .3em #666;
+    transform: translateY(.4em);
 }
