@@ -61,6 +61,7 @@ function Options() {
                     <FaCopy />
                 </button>
             </div>
+            <button onClick={() => addText(-1)}>Add Text Below</button>
             {store.texts.map((t, i) => (
                 <div key={t.id}>
                     <div className="row">
