@@ -2,7 +2,6 @@
   "name": "clipboard-organizer",
   "version": "1.0.0",
   "description": "A Chrome plugin for saving items through the context menu and building an easily re-arranged list.",
-  "main": "main.js",
   "scripts": {
     "start": "npx webpack --watch"
   },
@@ -13,11 +12,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "cover-letter-generator"
+    "url": "clipboard-organizer-chrome-extension"
   },
-  "keywords": [
-    "openapi"
-  ],
   "author": "Tracy Medcalf",
   "license": "GPLv3",
   "devDependencies": {
