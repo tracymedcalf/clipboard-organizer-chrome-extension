@@ -7,6 +7,8 @@ function registerPasteListener() {
         const el = document.activeElement as any;
         const [start, end] = [el.selectionStart, el.selectionEnd];
         el.setRangeText(message, start, end, 'select');
+
+        el.dispatchEvent(new Event('input', { bubbles: true}));
     });
 }
 
