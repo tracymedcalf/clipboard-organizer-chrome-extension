@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #FFBB5C;
+    --secondary-color: #FF9B50;
+    --tertiary-color: #E25E3E;
+    --quaternary-color: #C63D2F;
+}
+
 .container {
     margin: 1em;
 }
@@ -8,15 +15,14 @@ button {
     text-align: center;
     outline: none;
     color: #fff;
-    background-color: #4caf50;
+    background-color: var(--secondary-color);
     border: none;
-    border-radius: .8em;
     box-shadow: 0 .7em #999;
     width: 100%;
 }
 
 button:hover, button:active {
-    background-color: #3e8e41;
+    background-color: var(--tertiary-color);
 }
 
 button:active {
