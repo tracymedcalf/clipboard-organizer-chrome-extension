@@ -6,6 +6,7 @@ import AllTogether from "./AllTogether";
 import Text from "./Text";
 import { useCookie } from "./cookie_hook";
 import copyToClipboard from "./copyToClipboard";
+import registerPasteListener from "./registerPasteListener";
 
 function Options() {
 
@@ -47,6 +48,10 @@ function Options() {
     const handleCopy = () => {
         copyToClipboard();
     }
+
+    React.useEffect(() => {
+        registerPasteListener();
+    })
 
     return (
         <div>
