@@ -1,7 +1,7 @@
 import { key } from "./storage_key";
 import Text from "./Text";
 
-// Store text to persist while plugin is loaded or until reset. 
+// Store text to persist between browser sessions
 class Store {
     public delimiter: string;
     public texts: Text[];

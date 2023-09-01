@@ -41,23 +41,6 @@ function addContextMenuItem(
     });
 }
 
-chrome.contextMenus.onClicked.addListener(contextOnClick);
-
-chrome.runtime.onInstalled.addListener(() => {
-
-    const selection: ContextType = "selection";
-    addContextMenuItem(
-        "Save selection to Clipboard Organizer",
-        selection
-    );
-
-    const editable: ContextType = "editable";
-    addContextMenuItem(
-        "Insert Clipboard Organizer contents",
-        editable
-    )
-});
-
 function injectScript(tabId: number) {
     chrome.scripting.executeScript({
         target: { tabId },
@@ -76,6 +59,24 @@ function queryHandler(tabs: chrome.tabs.Tab[]) {
         processTab(t);
     }
 }
+
+
+chrome.contextMenus.onClicked.addListener(contextOnClick);
+
+chrome.runtime.onInstalled.addListener(() => {
+
+    const selection: ContextType = "selection";
+    addContextMenuItem(
+        "Save selection to Clipboard Organizer",
+        selection
+    );
+
+    const editable: ContextType = "editable";
+    addContextMenuItem(
+        "Insert Clipboard Organizer contents",
+        editable
+    )
+});
 
 chrome.runtime.onInstalled.addListener(() => {
     chrome.tabs.query({}, queryHandler);
