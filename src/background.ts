@@ -1,4 +1,3 @@
-import copyToClipboard from "./copyToClipboard";
 import Store from "./Store";
 
 async function selectionOnClick(selectionText: string) {
@@ -57,4 +56,27 @@ chrome.runtime.onInstalled.addListener(() => {
         "Insert Clipboard Organizer contents",
         editable
     )
+});
+
+function injectScript(tabId: number) {
+    chrome.scripting.executeScript({
+        target: { tabId },
+        files: ['content_script.js']
+    });
+}
+
+function processTab(tab: chrome.tabs.Tab) {
+    if (!tab?.url.match(/chrome:\/\//)) {
+        injectScript(tab.id);
+    }
+}
+
+function queryHandler(tabs: chrome.tabs.Tab[]) {
+    for (const t of tabs) {
+        processTab(t);
+    }
+}
+
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.tabs.query({}, queryHandler);
 });

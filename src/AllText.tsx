@@ -1,5 +1,15 @@
 import React from "react";
+import type Text from "./Text";
 import type Store from "./Store";
+
+function TextComponent(props: { delimiter: string; text: Text; }) {
+    const { text } = props;
+    if (props.delimiter === " ") {
+        return <span key={text.id}>{text.text + " "}</span>;
+    }
+
+    return <p key={text.id}>{text.text}</p>;
+}
 
 export default function AllText(props: { store: Store }) {
     if (props.store.texts.filter(t => t.text !== "").length === 0) {
@@ -8,16 +18,9 @@ export default function AllText(props: { store: Store }) {
         )
     }
 
-    if (props.store.delimiter === "\n") {
-        return (
-            <div>
-                {props.store.texts.map(t => <p key={t.id}>{t.text}</p>)}
-            </div>
-        );
-    }
     return (
         <div>
-            {props.store.texts.map(t => <span key={t.id}>{t.text + " "}</span>)}
+            {props.store.texts.map(t => <TextComponent text={t} />)}
         </div>
-    )
+    );
 }

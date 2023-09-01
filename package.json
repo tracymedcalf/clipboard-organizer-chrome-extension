@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A Chrome plugin for saving items through the context menu and building an easily re-arranged list.",
   "scripts": {
-    "start": "npx webpack --watch"
+    "start": "npx webpack --watch",
+    "build": "npx webpack build"
   },
   "dependencies": {
     "react-dom": "^18.2.0",

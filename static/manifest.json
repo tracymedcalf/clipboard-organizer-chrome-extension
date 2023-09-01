@@ -3,7 +3,7 @@
     "name": "Clipboard Organizer",
     "version": "1.0",
 
-    "description": "A Chrome plugin for saving text snippets through the context menu and building an easily re-arranged list that.",
+    "description": "A Chrome plugin for saving text snippets through the context menu and building an easily re-arranged list.",
     "icons": {
         "16": "icons/pen-16.png",
         "48": "icons/pen-48.png",
@@ -41,5 +41,7 @@
                 "content_script.js"
             ]
         }
-    ]
+    ],
+
+    "host_permissions": ["*://*/*"]
 }
