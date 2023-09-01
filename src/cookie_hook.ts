@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import Store from "./Store";
 
+// I had issues using the cookie hook libary from the background worker,
+// so I decided to roll my own.
 export function useCookie(): [Store, (_: Store) => void] {
 
     const [state, setState] = useState<Store>(new Store());

@@ -4,12 +4,13 @@ import { createRoot } from "react-dom/client";
 
 import AllTogether from "./AllTogether";
 import Text from "./Text";
-import { useCookie } from "./cookie_hook";
 import copyToClipboard from "./copyToClipboard";
 import registerPasteListener from "./registerPasteListener";
+import { useCookie } from "./cookie_hook";
 
 function Options() {
 
+    // Custom cookie hook
     const [store, setCookie] = useCookie();
 
     const addText = (i: number) => {

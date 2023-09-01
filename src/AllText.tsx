@@ -20,7 +20,8 @@ export default function AllText(props: { store: Store }) {
 
     return (
         <div>
-            {props.store.texts.map(t => <TextComponent text={t} />)}
+            {props.store.texts.map(t => 
+                <TextComponent delimiter={props.store.delimiter} text={t} />)}
         </div>
     );
 }

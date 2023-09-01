@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import copyToClipboard from "./copyToClipboard";
 
-function Popup(props: { content: string[] }) {
+function Popup() {
 
     return (
         <div className="container">
@@ -22,6 +22,6 @@ const root = createRoot(document.getElementById("dom-container"));
 
 root.render(
     <React.StrictMode>
-        <Popup content={['Text']} />
+        <Popup />
     </React.StrictMode>,
 );
